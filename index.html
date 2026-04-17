@@ -1,1 +1,357 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jana Alkahlan — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
 
+  <!-- ============ NAVIGATION ============ -->
+  <nav class="nav" id="nav">
+    <div class="nav__logo">Jana Alkahlan</div>
+    <ul class="nav__links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <span id="themeIcon">☾</span>
+    </button>
+    <button class="nav__hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#about"    class="mobile-link">About</a></li>
+      <li><a href="#projects" class="mobile-link">Projects</a></li>
+      <li><a href="#skills"   class="mobile-link">Skills</a></li>
+      <li><a href="#contact"  class="mobile-link">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="home">
+    <div class="blob blob--a" aria-hidden="true"></div>
+    <div class="blob blob--b" aria-hidden="true"></div>
+    <div class="blob blob--c" aria-hidden="true"></div>
+
+    <div class="hero__inner">
+      <p class="hero__greeting" id="greeting">Good morning</p>
+      <h1 class="hero__name"><em>Jana</em><br />Alkahlan</h1>
+      <p class="hero__sub">Software Engineering Student</p>
+      <p class="hero__tagline">
+        Building practical, well-crafted software — from machine learning pipelines
+        and desktop applications to full-stack web platforms.
+      </p>
+      <div class="hero__actions">
+        <a href="#projects" class="btn btn--filled">View My Work</a>
+        <a href="#contact"  class="btn btn--ring">Get in Touch</a>
+      </div>
+    </div>
+
+    <div class="hero__scroll" aria-hidden="true">
+      <div class="hero__scroll-line"></div>
+      <span>scroll</span>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="section about" id="about">
+    <div class="container">
+      <p class="section__eyebrow reveal">01 — About</p>
+      <div class="about__grid">
+
+        <div class="about__photo-wrap reveal">
+          <div class="about__initials">JA</div>
+          <div class="about__frame"></div>
+        </div>
+
+        <div class="about__copy reveal">
+          <h2 class="section__heading">Nice to <em>meet you</em></h2>
+          <p>
+            I'm a Software Engineering undergraduate with a passion for building
+            practical, well-structured systems. I enjoy working across the full
+            development lifecycle — designing data models, crafting clean interfaces,
+            and engineering the logic in between.
+          </p>
+          <p>
+            I'm currently seeking a summer training opportunity to gain hands-on
+            experience in real-world software development. My interests span
+            data science, software design, and full-stack web development —
+            I love turning complex problems into clear, user-focused solutions.
+          </p>
+          <p>
+            As part of my academic work, I developed <strong>Meras</strong>,
+            a mentorship platform designed to help students explore university
+            majors through task-based simulations and peer guidance.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section class="section projects" id="projects">
+    <div class="container">
+      <p class="section__eyebrow reveal">02 — Projects</p>
+      <h2 class="section__heading reveal">Selected <em>Work</em></h2>
+
+      <!-- USER GUIDANCE -->
+      <p class="projects__hint reveal">Use the filters or search below to explore projects</p>
+
+      <!-- SEARCH + FILTERS -->
+      <div class="projects__controls reveal">
+        <div class="projects__search-wrap">
+          <span class="projects__search-icon" aria-hidden="true">⌕</span>
+          <input
+            type="text"
+            id="projectSearch"
+            class="projects__search"
+            placeholder="Search projects by title or description…"
+            aria-label="Search projects"
+          />
+          <button class="projects__search-clear" id="searchClear" aria-label="Clear search" hidden>✕</button>
+        </div>
+
+        <div class="filter-btns" role="group" aria-label="Filter projects by category">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="machine-learning">Machine Learning</button>
+          <button class="filter-btn" data-filter="desktop">Desktop</button>
+          <button class="filter-btn" data-filter="web">Web</button>
+        </div>
+      </div>
+
+      <!-- PROJECT GRID -->
+      <div class="projects__grid" id="projectsGrid">
+
+        <!-- Card 1 -->
+        <article class="card reveal" data-category="machine-learning" data-title="Academic Risk Predictor" data-desc="Identified risk factors linked to poor academic performance by designing and administering a student survey, then building end-to-end ML classification models in Python — data preprocessing, statistical analysis, and visualizations to turn raw data into actionable insights.">
+          <div class="card__top card__top--rose">
+            <span class="card__num">01</span>
+            <span class="card__emoji" aria-hidden="true">📊</span>
+          </div>
+          <div class="card__body">
+            <div class="card__chips">
+              <span class="chip">Python</span>
+              <span class="chip">Machine Learning</span>
+              <span class="chip">Data Analysis</span>
+            </div>
+            <h3 class="card__title">Academic Risk Predictor</h3>
+            <p class="card__desc">
+              Identified risk factors linked to poor academic performance by designing
+              and administering a student survey, then building end-to-end ML
+              classification models in Python — data preprocessing, statistical
+              analysis, and visualizations to turn raw data into actionable insights.
+            </p>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="card reveal" data-category="desktop" data-title="Term Schedule Visualizer" data-desc="A desktop application that reads academic Excel schedules and dynamically renders visual timetables. Designed using OOP class diagrams with fully custom programmatic graphical output — no pre-built chart components used.">
+          <div class="card__top card__top--terra">
+            <span class="card__num">02</span>
+            <span class="card__emoji" aria-hidden="true">🗓️</span>
+          </div>
+          <div class="card__body">
+            <div class="card__chips">
+              <span class="chip">VB.NET</span>
+              <span class="chip">OOP</span>
+              <span class="chip">Desktop App</span>
+            </div>
+            <h3 class="card__title">Term Schedule Visualizer</h3>
+            <p class="card__desc">
+              A desktop application that reads academic Excel schedules and
+              dynamically renders visual timetables. Designed using OOP class
+              diagrams with fully custom programmatic graphical output — no
+              pre-built chart components used.
+            </p>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="card reveal" data-category="desktop" data-title="Folder Structure Visualizer" data-desc="Applied the Composite and Strategy design patterns to model and visualize hierarchical file-folder systems. Recursively traverses directories, calculates sizes, and supports multiple visualization modes through a clean, extensible architecture.">
+          <div class="card__top card__top--sage">
+            <span class="card__num">03</span>
+            <span class="card__emoji" aria-hidden="true">📁</span>
+          </div>
+          <div class="card__body">
+            <div class="card__chips">
+              <span class="chip">VB.NET</span>
+              <span class="chip">Design Patterns</span>
+              <span class="chip">Composite</span>
+            </div>
+            <h3 class="card__title">Folder Structure Visualizer</h3>
+            <p class="card__desc">
+              Applied the Composite and Strategy design patterns to model and
+              visualize hierarchical file-folder systems. Recursively traverses
+              directories, calculates sizes, and supports multiple visualization
+              modes through a clean, extensible architecture.
+            </p>
+          </div>
+        </article>
+
+        <!-- Card 4 — Featured full-width -->
+        <article class="card card--featured reveal" data-category="web" data-title="Meras Mentorship Platform" data-desc="A web-based mentorship and career exploration platform helping students make informed academic decisions through task-based major simulations and peer guidance from students with relevant backgrounds. Built across frontend, backend, and database layers — combining software engineering principles with real-world system design and scalable architecture.">
+          <div class="card__top card__top--blush">
+            <span class="card__num">04</span>
+            <span class="card__emoji" aria-hidden="true">🌱</span>
+            <span class="card__badge">In Progress</span>
+          </div>
+          <div class="card__body">
+            <div class="card__chips">
+              <span class="chip">Full-Stack</span>
+              <span class="chip">Web Development</span>
+              <span class="chip">SQL</span>
+              <span class="chip">HTML &amp; CSS</span>
+            </div>
+            <h3 class="card__title">Meras — Mentorship Platform</h3>
+            <p class="card__desc">
+              A web-based mentorship and career exploration platform helping students
+              make informed academic decisions through task-based major simulations
+              and peer guidance from students with relevant backgrounds. Built across
+              frontend, backend, and database layers — combining software engineering
+              principles with real-world system design and scalable architecture.
+            </p>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Empty state -->
+      <div class="projects__empty" id="projectsEmpty" hidden>
+        <span class="projects__empty-icon" aria-hidden="true">◎</span>
+        <p>No projects found</p>
+        <span>Try a different search term or filter</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section class="section skills" id="skills">
+    <div class="container">
+      <p class="section__eyebrow reveal">03 — Skills</p>
+      <h2 class="section__heading reveal">What I <em>Work With</em></h2>
+
+      <div class="skills__grid">
+
+        <div class="skill-block reveal">
+          <div class="skill-block__icon">{ }</div>
+          <h3>Languages</h3>
+          <ul>
+            <li>Python</li>
+            <li>Java</li>
+            <li>C</li>
+            <li>VB.NET</li>
+          </ul>
+        </div>
+
+        <div class="skill-block reveal">
+          <div class="skill-block__icon">&lt;/&gt;</div>
+          <h3>Web Development</h3>
+          <ul>
+            <li>HTML &amp; CSS</li>
+            <li>JavaScript</li>
+            <li>Responsive Design</li>
+          </ul>
+        </div>
+
+        <div class="skill-block reveal">
+          <div class="skill-block__icon">⬡</div>
+          <h3>Desktop &amp; UI</h3>
+          <ul>
+            <li>JavaFX</li>
+            <li>VB.NET UI</li>
+            <li>Figma</li>
+          </ul>
+        </div>
+
+        <div class="skill-block reveal">
+          <div class="skill-block__icon">◈</div>
+          <h3>Data &amp; Databases</h3>
+          <ul>
+            <li>SQL / MySQL</li>
+            <li>Data Analysis</li>
+            <li>ML Fundamentals</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <p class="section__eyebrow reveal">04 — Contact</p>
+      <div class="contact__grid">
+
+        <div class="contact__left reveal">
+          <h2 class="section__heading">Let's <em>Connect</em></h2>
+          <p>
+            Have an opportunity, a project, or just want to say hello?
+            I'd love to hear from you.
+          </p>
+          <div class="contact__links">
+<a href="mailto:jana.kahlan@gmail.com" class="contact__pill">
+  ✉ jana.kahlan@gmail.com
+</a>            <a href="https://github.com/Jana-101" target="_blank" rel="noopener" class="contact__pill">GitHub ↗</a>
+            <a href="https://www.linkedin.com/in/jana-alkahlan-121173356" target="_blank" rel="noopener" class="contact__pill">LinkedIn ↗</a>
+          </div>
+        </div>
+
+        <div class="contact__right reveal">
+          <!-- USER GUIDANCE -->
+          <p class="form__hint">Fill out all fields and submit your message — I'll get back to you soon.</p>
+
+          <!-- Error summary -->
+          <div class="form__error-summary" id="formErrorSummary" hidden>
+            <span aria-hidden="true">⚠</span> Please fix the errors below before submitting.
+          </div>
+
+          <form class="contact__form" id="contactForm" novalidate>
+            <div class="field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your full name" required autocomplete="name" />
+              <span class="field__err" id="nameError" role="alert"></span>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email" />
+              <span class="field__err" id="emailError" role="alert"></span>
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="What's on your mind?" required></textarea>
+              <span class="field__err" id="messageError" role="alert"></span>
+            </div>
+            <button type="submit" class="btn btn--filled btn--full" id="submitBtn">Send Message</button>
+            <div class="form__success" id="formSuccess" role="status">
+              <span aria-hidden="true">✓</span> Message sent successfully! I'll get back to you soon.
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+  <div class="container">
+    <p>© 2026 Jana Alkahlan</p>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
