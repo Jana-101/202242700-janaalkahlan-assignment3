@@ -58,20 +58,20 @@ The goal of this assignment is to build a more complete, user-friendly, and feat
 
 ---
 
-## 📁 Project Structure
 
-assignment-3/
-├── index.html
-├── css/
-│   └── styles.css
-├── js/
-│   └── script.js
-├── assets/
-│   └── images/
-├── docs/
-│   ├── ai-usage-report.md
-│   └── technical-documentation.md
-└── README.md
+## 📁 Project Structure
+assignment-3/  
+├── index.html  
+├── css/  
+│   └── styles.css  
+├── js/  
+│   └── script.js  
+├── assets/  
+│   └── images/  
+├── docs/  
+│   ├── ai-usage-report.md  
+│   └── technical-documentation.md  
+└── README.md  
 
 ---
 
