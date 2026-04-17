@@ -6,7 +6,8 @@
   <title>Jana Alkahlan — Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
 
@@ -16,15 +17,18 @@
     <ul class="nav__links">
       <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#github">GitHub</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-      <span id="themeIcon">☾</span>
-    </button>
-    <button class="nav__hamburger" id="hamburger" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="nav__right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span id="themeIcon">☾</span>
+      </button>
+      <button class="nav__hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </nav>
 
   <!-- Mobile Menu -->
@@ -32,9 +36,38 @@
     <ul>
       <li><a href="#about"    class="mobile-link">About</a></li>
       <li><a href="#projects" class="mobile-link">Projects</a></li>
+      <li><a href="#github"   class="mobile-link">GitHub</a></li>
       <li><a href="#skills"   class="mobile-link">Skills</a></li>
       <li><a href="#contact"  class="mobile-link">Contact</a></li>
     </ul>
+  </div>
+
+  <!-- ============ HOW TO USE THIS WEBSITE — Guide Panel ============ -->
+  <!-- Dismissible guide: persists dismissal in localStorage so it won't reappear -->
+  <div class="site-guide" id="siteGuide">
+    <div class="site-guide__inner">
+      <button class="site-guide__close" id="siteGuideClose" aria-label="Dismiss guide">✕</button>
+      <p class="site-guide__title">📖 How to use this website</p>
+      <ol class="site-guide__steps">
+        <li>Navigate using the menu <span class="site-guide__step-note">(About, Projects, Skills, Contact)</span></li>
+        <li>Use <strong>filters</strong> and <strong>search</strong> to explore projects</li>
+        <li>Sort projects using the <strong>sort dropdown</strong></li>
+        <li>View live <strong>GitHub repositories</strong> in the GitHub section</li>
+        <li>Fill the <strong>contact form</strong> to get in touch</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- ============ WELCOME BANNER (personalisation) ============ -->
+  <div class="welcome-banner" id="welcomeBanner" hidden>
+    <span id="welcomeText"></span>
+    <button class="welcome-banner__close" id="welcomeClose" aria-label="Dismiss">✕</button>
+  </div>
+
+  <!-- ============ SESSION TIMER ============ -->
+  <div class="session-timer" id="sessionTimer" aria-live="polite">
+    <span class="session-timer__icon" aria-hidden="true">⏱</span>
+    <span id="sessionTimerText">You've been here for 0s</span>
   </div>
 
   <!-- ============ HERO ============ -->
@@ -44,7 +77,7 @@
     <div class="blob blob--c" aria-hidden="true"></div>
 
     <div class="hero__inner">
-      <p class="hero__greeting" id="greeting">Good morning</p>
+      <p class="hero__greeting" id="greeting">Software Engineering Student ☀</p>
       <h1 class="hero__name"><em>Jana</em><br />Alkahlan</h1>
       <p class="hero__sub">Software Engineering Student</p>
       <p class="hero__tagline">
@@ -106,10 +139,13 @@
       <h2 class="section__heading reveal">Selected <em>Work</em></h2>
 
       <!-- USER GUIDANCE -->
-      <p class="projects__hint reveal">Use the filters or search below to explore projects</p>
+      <p class="projects__hint reveal">
+        Use filters or search to explore projects. You can also sort them.
+      </p>
 
-      <!-- SEARCH + FILTERS -->
+      <!-- SEARCH + FILTERS + SORT -->
       <div class="projects__controls reveal">
+        <!-- Search -->
         <div class="projects__search-wrap">
           <span class="projects__search-icon" aria-hidden="true">⌕</span>
           <input
@@ -122,11 +158,23 @@
           <button class="projects__search-clear" id="searchClear" aria-label="Clear search" hidden>✕</button>
         </div>
 
+        <!-- Filter buttons -->
         <div class="filter-btns" role="group" aria-label="Filter projects by category">
           <button class="filter-btn active" data-filter="all">All</button>
           <button class="filter-btn" data-filter="machine-learning">Machine Learning</button>
           <button class="filter-btn" data-filter="desktop">Desktop</button>
           <button class="filter-btn" data-filter="web">Web</button>
+        </div>
+
+        <!-- Sort dropdown -->
+        <div class="sort-wrap">
+          <label for="sortSelect" class="sort-label">Sort by:</label>
+          <select id="sortSelect" class="sort-select" aria-label="Sort projects">
+            <option value="default">Default order</option>
+            <option value="name-az">Name (A → Z)</option>
+            <option value="name-za">Name (Z → A)</option>
+            <option value="category">Category</option>
+          </select>
         </div>
       </div>
 
@@ -236,10 +284,38 @@
     </div>
   </section>
 
+  <!-- ============ GITHUB REPOSITORIES ============ -->
+  <section class="section github-section" id="github">
+    <div class="container">
+      <p class="section__eyebrow reveal">03 — GitHub</p>
+      <h2 class="section__heading reveal">Live <em>Repositories</em></h2>
+      <p class="github-section__sub reveal">Fetched live from the GitHub API</p>
+
+      <!-- Loading state -->
+      <div class="github-loading" id="githubLoading" aria-live="polite">
+        <div class="github-loading__dots">
+          <span></span><span></span><span></span>
+        </div>
+        <p>Loading repositories…</p>
+      </div>
+
+      <!-- Error state -->
+      <div class="github-error" id="githubError" hidden>
+        <span class="github-error__icon" aria-hidden="true">⚠</span>
+        <p>Unable to load projects at the moment.</p>
+        <span>Please check your connection or try again later.</span>
+        <button class="btn btn--ring github-error__retry" id="githubRetry">Retry</button>
+      </div>
+
+      <!-- Repos grid -->
+      <div class="github-grid" id="githubGrid" hidden></div>
+    </div>
+  </section>
+
   <!-- ============ SKILLS ============ -->
   <section class="section skills" id="skills">
     <div class="container">
-      <p class="section__eyebrow reveal">03 — Skills</p>
+      <p class="section__eyebrow reveal">04 — Skills</p>
       <h2 class="section__heading reveal">What I <em>Work With</em></h2>
 
       <div class="skills__grid">
@@ -292,7 +368,7 @@
   <!-- ============ CONTACT ============ -->
   <section class="section contact" id="contact">
     <div class="container">
-      <p class="section__eyebrow reveal">04 — Contact</p>
+      <p class="section__eyebrow reveal">05 — Contact</p>
       <div class="contact__grid">
 
         <div class="contact__left reveal">
@@ -302,21 +378,19 @@
             I'd love to hear from you.
           </p>
           <div class="contact__links">
-<a href="mailto:jana.kahlan@gmail.com" class="contact__pill">
-  ✉ jana.kahlan@gmail.com
-</a>            <a href="https://github.com/Jana-101" target="_blank" rel="noopener" class="contact__pill">GitHub ↗</a>
+            <a href="mailto:jana.kahlan@gmail.com" class="contact__pill">
+              ✉ jana.kahlan@gmail.com
+            </a>
+            <a href="https://github.com/Jana-101" target="_blank" rel="noopener" class="contact__pill">GitHub ↗</a>
             <a href="https://www.linkedin.com/in/jana-alkahlan-121173356" target="_blank" rel="noopener" class="contact__pill">LinkedIn ↗</a>
           </div>
         </div>
 
         <div class="contact__right reveal">
           <!-- USER GUIDANCE -->
-          <p class="form__hint">Fill out all fields and submit your message — I'll get back to you soon.</p>
-
-          <!-- Error summary -->
-          <div class="form__error-summary" id="formErrorSummary" hidden>
-            <span aria-hidden="true">⚠</span> Please fix the errors below before submitting.
-          </div>
+          <p class="form__hint">
+            Fill all fields correctly and submit. Errors will be shown if inputs are invalid.
+          </p>
 
           <form class="contact__form" id="contactForm" novalidate>
             <div class="field">
@@ -347,11 +421,24 @@
 
   <!-- ============ FOOTER ============ -->
   <footer class="footer">
-  <div class="container">
-    <p>© 2026 Jana Alkahlan</p>
-  </div>
-</footer>
+    <div class="container">
+      <p>© 2026 Jana Alkahlan</p>
+    </div>
+  </footer>
 
-<script src="js/script.js"></script>
+  <!-- Name prompt modal -->
+  <div class="name-modal" id="nameModal" role="dialog" aria-modal="true" aria-labelledby="nameModalTitle" hidden>
+    <div class="name-modal__box">
+      <p class="name-modal__title" id="nameModalTitle">Welcome! What's your name?</p>
+      <p class="name-modal__sub">I'll personalise your visit.</p>
+      <input type="text" id="nameInput" class="name-modal__input" placeholder="Enter your name…" maxlength="40" autocomplete="given-name" />
+      <div class="name-modal__actions">
+        <button class="btn btn--filled" id="nameSubmit">Let's go →</button>
+        <button class="btn btn--ring" id="nameSkip">Skip</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
